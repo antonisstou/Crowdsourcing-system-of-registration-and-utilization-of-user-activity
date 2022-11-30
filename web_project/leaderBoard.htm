@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8">
+     <link rel="stylesheet" type="text/css" href="../style1.css">
+</head>
+<body>
+
+<h1 style="text-align:center;">Κατάσταση Βάσης Δεδομένων</h1>
+
+
+<table style="margin-left:auto;margin-right:auto;">
+  <tr>
+    <td><div id="piecharta" style="border: 1px solid #ccc"></div></td>
+  </tr>
+</table>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+
+var dataA;
+function dataA(){
+var ajax = new XMLHttpRequest();
+ajax.open("POST", "leaderBoardData.php",true);
+ajax.send();
+// receiving response
+ajax.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200)
+{
+ dataA = JSON.parse(this.responseText);
+ console.log(dataA);
+}};
+}
+
+dataA();
+
+
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawCharta);
+
+
+function drawCharta() {
+
+var data = new google.visualization.DataTable();
+data.addColumn('string', 'names');
+data.addColumn('number', 'records');
+
+for(i = 0; i < 3; i++)
+  data.addRow([dataA[i][0] + " " + dataA[i][1].charAt(0), dataA[i][2]]);
+
+// Create and draw the visualization.
+
+// Optional; add a title and set the width and height of the chart
+var options = {'title':'Κατανομή των δραστηριοτήτων των χρηστών ανά τύπο δραστηριότητας', 'width':715, 'height':520};
+
+// Display the chart inside the <div> element with id="piechart"
+var chart = new google.visualization.PieChart(document.getElementById('piecharta'));
+chart.draw(data, options);
+}
+
+</script>
+
+<div style="text-align:center">
+    <button class="button" onclick="goBack()">Πήγενε πίσω</button>
+</div>>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
+</body>
+</html>

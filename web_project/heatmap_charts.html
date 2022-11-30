@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <title>Heatmap/Charts - Page</title>
+     <link rel="stylesheet" type="text/css" href="style2.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body >
+<ul class="topnav">
+	<li><a href="index.php?logout='1'" style="color: red;">Logout</a></li>
+	<li><a href="userPage.html" style="color: white;"> My Page </a><li>
+	<li><a href="ecological.php" style="color: white;"> Οικολογική Μετακίνηση </a><li>
+	<li><a class="active" href="heatmap_charts.html" style="color: white;"> Απεικόνιση σε χάρτη/γραφήματα </a><li>
+
+</ul><br><br>
+
+<ul class="fa-ul">
+<li style="font-weight:bold;"><i class="fa fa-caret-right"></i> Εδώ μπορείς να επιλέξεις κριτήρια για την ανάλυση/απεικόνιση <br>των στοιχείων τοποθεσίας σου  :</li> 
+</ul>
+<div class="round" align="center">
+     <form method="POST" action="userData.php" id="formID">
+          <label><ins>Επέλεξε έτος:</ins></label> <br> <br>
+          <label>Από:</label>
+          <input  name ="FromYear" id ="FromYear" type="number" min="2010" max="2020">
+          <label>Έως:</label>
+          <input  name ="ToYear" id ="ToYear" type="number" min="2010" max="2020" title = "Επέλεξε το ίδιο έτος αν ψάχνεις για ένα συγκεκριμένο έτος πχ. Από: 2013 Εώς: 2013" required > <br>
+          <br> <br>
+
+          <label><ins>Επέλεξε Μήνα:</ins></label> <br> <br>
+          <label> Από:</label>
+          <select name="FromMonth" id="FromMonth">
+               <option disabled selected value> -- select an option -- </option>
+               <option value="01">Ιανουάριος</option>
+               <option value="02">Φεβρουάριος</option>
+               <option value="03">Μάρτιος</option>
+               <option value="04">Απρίλιος</option>
+               <option value="05">ΜάΪος</option>
+               <option value="06">Ιούνιος</option>
+               <option value="07">Ιούλιος</option>
+               <option value="08">Αύγουστος</option>
+               <option value="09">Σεπτέμβριος</option>
+               <option value="10">Οκτώβριος</option>
+               <option value="11">Νοέμβριος</option>
+               <option value="12">Δεκέμβριος</option>
+          </select>
+		  <label> Εώς:</label> 
+          <select name="ToMonth" id="ToMonth" title = "Επέλεξε τον ίδιο μήνα αν ψάχνεις για ένα συγκεκριμένο μήνα πχ. Από: Απρίλιος Εώς: Απρίλιος" required>
+               <option disabled selected value> -- select an option -- </option>
+               <option value="1">Ιανουάριος</option>
+               <option value="2">Φεβρουάριος</option>
+               <option value="3">Μάρτιος</option>
+               <option value="4">Απρίλιος</option>
+               <option value="5">ΜάΪος</option>
+               <option value="6">Ιούνιος</option>
+               <option value="7">Ιούλιος</option>
+               <option value="8">Αύγουστος</option>
+               <option value="9">Σεπτέμβριος</option>
+               <option value="10">Οκτώβριος</option>
+               <option value="11">Νοέμβριος</option>
+               <option value="12">Δεκέμβριος</option>
+          </select> <br> <br><br> <br>
+         <button class="button" type="submit" class="btn" name="SelectCriteria_btn" id="btnID">Υποβολή κριτηρίων</button> <br><br>
+		  <button class="button" href="home.php">Aκύρωση</button>
+     </form>
+</div>
+
+</body>
+</html>

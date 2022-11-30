@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8">
+     <link rel="stylesheet" type="text/css" href="../style1.css">
+</head>
+<body>
+
+<ul class="topnav">
+    <li><a href="../index.php?logout='1'" style="color: red;">Logout</a></li>
+    <li><a href="home.php" style="color: white;">Επιστροφή στην αρχική</a></li>
+</ul>
+
+<h1 style="text-align:center;">Κατάσταση Βάσης Δεδομένων</h1>
+
+
+<table style="margin-left:auto;margin-right:auto;">
+  <tr>
+    <td><div id="piecharta" style="border: 1px solid #ccc"></div></td>
+    <td><div id="piechartb" style="border: 1px solid #ccc"></div></td>
+  </tr>
+  <tr>
+    <td><div id="piechartc" style="border: 1px solid #ccc"></div></td>
+    <td><div id="piechartd" style="border: 1px solid #ccc"></div></td>
+  </tr>
+  <tr>
+    <td><div id="piecharte" style="border: 1px solid #ccc"></div></td>
+    <td><div id="piechartf" style="border: 1px solid #ccc"></div></td>
+  </tr>
+</table>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+
+var dataA;
+function dataA(){
+var ajax = new XMLHttpRequest();
+ajax.open("POST", "chartData/ajaxDataForCharta.php",true);
+ajax.send();
+ajax.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200)
+{
+ dataA = JSON.parse(this.responseText);
+ console.log(dataA);
+}};
+}
+
+dataA();
+
+var dataB;
+function dataB(){
+var ajax = new XMLHttpRequest();
+ajax.open("POST", "chartData/ajaxDataForChartb.php",true);
+ajax.send();
+ajax.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200)
+{
+ dataB = JSON.parse(this.responseText);
+ console.log(dataB);
+}};
+}
+
+dataB();
+
+var dataC;
+function dataC(){
+var ajax = new XMLHttpRequest();
+ajax.open("POST", "chartData/ajaxDataForChartc.php",true);
+ajax.send();
+ajax.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200)
+{
+ dataC = JSON.parse(this.responseText);
+ console.log(dataC);
+}};
+}
+
+dataC();
+
+var dataD;
+function dataD(){
+var ajax = new XMLHttpRequest();
+ajax.open("POST", "chartData/ajaxDataForChartd.php",true);
+ajax.send();
+ajax.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200)
+{
+ dataD = JSON.parse(this.responseText);
+ console.log(dataD);
+}};
+}
+
+dataD();
+
+var dataE;
+function dataE(){
+var ajax = new XMLHttpRequest();
+ajax.open("POST", "chartData/ajaxDataForCharte.php",true);
+ajax.send();
+ajax.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200)
+{
+ dataE = JSON.parse(this.responseText);
+ console.log(dataE);
+}};
+}
+
+dataE();
+
+var dataF;
+function dataF(){
+var ajax = new XMLHttpRequest();
+ajax.open("POST", "chartData/ajaxDataForChartf.php",true);
+ajax.send();
+ajax.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200)
+{
+ dataF = JSON.parse(this.responseText);
+ console.log(dataF);
+}};
+}
+
+dataF();
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawCharta);
+window.setTimeout(drawChartb, 2000)
+google.charts.setOnLoadCallback(drawChartb);
+window.setTimeout(drawChartc, 2000)
+google.charts.setOnLoadCallback(drawChartc);
+window.setTimeout(drawChartd, 2000)
+google.charts.setOnLoadCallback(drawChartd);
+window.setTimeout(drawCharte, 2000)
+google.charts.setOnLoadCallback(drawCharte);
+window.setTimeout(drawChartf, 2000)
+google.charts.setOnLoadCallback(drawChartf);
+
+function drawCharta() {
+
+var data = new google.visualization.DataTable();
+data.addColumn('string', 'activities');
+data.addColumn('number', 'records');
+
+for(i = 0; i < dataA.length; i++)
+  data.addRow([dataA[i][0], dataA[i][1]]);
+
+
+var options = {'title':'Κατανομή των δραστηριοτήτων των χρηστών ανά τύπο δραστηριότητας', 'width':715, 'height':520};
+
+
+var chart = new google.visualization.PieChart(document.getElementById('piecharta'));
+chart.draw(data, options);
+}
+
+function drawChartb() {
+
+  var data = new google.visualization.DataTable();
+  data.addColumn('string', 'names');
+  data.addColumn('number', 'records');
+
+  for(i = 0; i < dataB.length; i++)
+    data.addRow([dataB[i][0] + " " + dataB[i][1], dataB[i][2]]);
+
+ 
+  var options = {'title':'Κατανομή του πλήθους εγγραφών ανά χρήστη', 'width':715, 'height':520};
+
+ 
+  var chart = new google.visualization.PieChart(document.getElementById('piechartb'));
+  chart.draw(data, options);
+}
+
+function drawChartc() {
+
+var data = new google.visualization.DataTable();
+data.addColumn('string', 'months');
+data.addColumn('number', 'records');
+
+for(i = 0; i < dataC.length; i++)
+  data.addRow([dataC[i][0], dataC[i][1]]);
+
+
+var options = {'title':'Κατανομή του πλήθους εγγραφών ανά μήνα', 'width':715, 'height':520};
+
+
+var chart = new google.visualization.PieChart(document.getElementById('piechartc'));
+chart.draw(data, options);
+}
+
+function drawChartd() {
+
+var data = new google.visualization.DataTable();
+data.addColumn('string', 'day');
+data.addColumn('number', 'records');
+
+for(i = 0; i < dataD.length; i++)
+  data.addRow([dataD[i][0], dataD[i][1]]);
+
+
+var options = {'title':'Κατανομή του πλήθους εγγραφών ανά μέρα', 'width':715, 'height':520};
+
+
+var chart = new google.visualization.PieChart(document.getElementById('piechartd'));
+chart.draw(data, options);
+}
+
+function drawCharte() {
+
+var data = new google.visualization.DataTable();
+data.addColumn('string', 'hour');
+data.addColumn('number', 'records');
+
+for(i = 0; i < dataE.length; i++)
+  data.addRow([dataE[i][0], dataE[i][1]]);
+
+
+var options = {'title':'Κατανομή του πλήθους εγγραφών ανά ώρα', 'width':715, 'height':520};
+
+
+var chart = new google.visualization.PieChart(document.getElementById('piecharte'));
+chart.draw(data, options);
+}
+
+function drawChartf() {
+
+var data = new google.visualization.DataTable();
+data.addColumn('string', 'year');
+data.addColumn('number', 'records');
+
+for(i = 0; i < dataF.length; i++)
+  data.addRow([dataF[i][0], dataF[i][1]]);
+
+
+var options = {'title':'Κατανομή του πλήθους εγγραφών ανά έτος', 'width':715, 'height':520};
+
+
+var chart = new google.visualization.PieChart(document.getElementById('piechartf'));
+chart.draw(data, options);
+}
+
+</script>
+
+</body>
+</html>

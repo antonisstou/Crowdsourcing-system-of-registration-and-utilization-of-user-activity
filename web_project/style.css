@@ -1,0 +1,134 @@
+body {
+	margin: 0;
+	background-image: url("images/patra.jpg");
+	background-repeat: no-repeat;
+	height: 650px;
+	background-position: center;
+	background-size: 100% 100%;
+	background-color: 	#e4dccd;
+	overflow-x: hidden;
+}
+
+ul.topnav {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+ul.topnav li a.active {background-color: #4CAF50;}
+
+ul.topnav li.right {float: right;}
+
+@media screen and (max-width: 600px) {
+	ul.topnav li.right, 
+	ul.topnav li {float: none;}
+}
+
+.center {
+	padding: 100px;
+     text-align: center;
+     color: white;
+     overflow: hidden;
+}
+
+.centerBlack {
+	padding: 100px;
+	text-align: center;
+	color: black;
+	overflow: hidden;
+}
+
+.mydiv {
+     position: absolute;
+     top:  75%;
+     left: 50%;
+     transform: translate(-50%,-50%);
+     overflow: hidden;
+}
+
+.rightDiv {
+	padding: 716px 10px;
+	overflow: hidden;
+}
+
+form, .content {
+	width: 30%;
+	margin: 0px auto;
+	padding: 200px 0px 500px 0px;
+}
+.formdiv {
+	margin: 10px 0px 10px 0px;
+}
+
+.formdiv label {
+	display: block;
+	text-align: left;
+	margin: 3px;
+}
+.formdiv input {
+	height: 30px;
+	width: 93%;
+	padding: 5px 10px;
+	font-size: 16px;
+	border-radius: 5px;
+	border: 1px solid gray;
+}
+#user_type {
+	height: 40px;
+	width: 98%;
+	padding: 5px 10px;
+	background: white;
+	font-size: 16px;
+	border-radius: 5px;
+	border: 1px solid gray;
+}
+.btn {
+	padding: 10px;
+	font-size: 15px;
+	color: white;
+	background: black;
+	border: none;
+	border-radius: 5px;
+}
+.error {
+	width: 92%; 
+	margin: 0px auto; 
+	padding: 10px; 
+	border: 1px solid #a94442; 
+	color: #a94442; 
+	background: #f2dede; 
+	border-radius: 5px; 
+	text-align: left;
+}
+.success {
+	color: #3c763d; 
+	background: #dff0d8; 
+	border: 1px solid #3c763d;
+	margin-bottom: 20px;
+}
+
+#upload_link{
+	text-decoration:none;
+ }
+ #upload{
+	display:none
+ }
+.myform {
+	height: 100px;
+	width: 500px;
+	background-color: powderblue;
+}

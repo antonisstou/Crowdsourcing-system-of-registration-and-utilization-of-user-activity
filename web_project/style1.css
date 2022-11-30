@@ -1,0 +1,98 @@
+body {
+	margin: 0;
+	background-position: center;
+	background-color: #e4dccd;
+	overflow-x: hidden;
+}
+
+ul.topnav {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+ul.topnav li a.active {background-color: #4CAF50;}
+
+ul.topnav li.right {float: right;}
+
+@media screen and (max-width: 600px) {
+	ul.topnav li.right, 
+	ul.topnav li {float: none;}
+}
+
+
+.button {
+	background-color: #555555;
+  	border: none;
+  	color: white;
+  	padding: 15px 32px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	font-size: 16px;
+  	margin: 4px 2px;
+	cursor: pointer;
+	transition-duration: 0.4s;
+}
+   
+.button:hover {
+	background-color: white;
+	color: black;
+}
+
+h3 {
+	border: 5px solid grey;
+	text-align: center;
+}
+
+.center {
+	margin: auto;
+	height: 500px;
+  	width: 800px;
+}
+
+.btn-group .buttonG {
+	background-color: #555555;
+	border: 1px solid none;
+	color: white;
+	padding: 45px 32px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 22px;
+	cursor: pointer;
+	width: 500px;
+	display: block;
+	margin: auto;
+}
+   
+.btn-group .buttonG:not(:last-child) {
+	border-bottom: none;
+}
+   
+.btn-group .buttonG:hover {
+	background-color: white;
+	color: black;
+}
+
+.round {
+	margin: auto;
+	border: 2px solid black;
+	border-radius: 5px;
+	text-align: center;
+	width: fit-content;
+	background-color: LightGray;
+}
